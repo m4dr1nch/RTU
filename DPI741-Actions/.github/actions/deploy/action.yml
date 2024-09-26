@@ -1,0 +1,29 @@
+name: Deploy
+inputs:
+  environ:
+    required: true
+  port:
+    required: true
+  repo:
+    required: false
+    default: 'https://github.com/m4dr1nch/DPI741-python-greetings'
+runs:
+  using: "composite"
+
+  steps:
+    - name: Print title
+      run: echo Deploying to ${{ inputs.environ }}
+      shell: bash
+    
+    - name: Remove the app if running
+      run: pm2 delete greetings-app-${{ inputs.environ }} || true
+      shell: bash
+
+    - name: Clone repository
+      run: git clone ${{ inputs.repo }} ${{ inputs.environ }}
+      shell: bash
+
+    - name: Start app
+      working-directory: ${{ inputs.environ }}
+      run: pm2 start app.py --name greetings-app-${{ inputs.environ }} -- --port ${{ inputs.port }}
+      shell: bash

@@ -1,0 +1,25 @@
+name: Test
+inputs:
+  environ:
+    required: true
+runs:
+  using: "composite"
+
+  steps:
+    - name: Print title
+      run: echo "Testing on ${{ inputs.environ }}"
+      shell: bash
+
+    - name: get mocha
+      run: git clone https://github.com/m4dr1nch/DPI741-js-api-framework mocha
+      shell: bash
+
+    - name: install npm dependencies
+      working-directory: mocha
+      run: npm install
+      shell: bash
+
+    - name: run tests
+      working-directory: mocha
+      run: npm run greetings greetings_${{ inputs.environ }}
+      shell: bash
