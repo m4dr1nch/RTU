@@ -1,0 +1,144 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-06-11T09:09:08.965Z",
+    "end": "2023-06-11T09:09:08.974Z",
+    "duration": 9,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8c98fff0-d3f7-44a5-a49c-1306fe747707",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [
+        {
+          "title": "\"before all\" hook in \"{root}\"",
+          "fullTitle": "\"before all\" hook in \"{root}\"",
+          "timedOut": false,
+          "duration": 1,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "await generateTestData()",
+          "err": {},
+          "uuid": "59ce27ff-634c-47c8-9e16-bc180b9246ee",
+          "parentUUID": "8c98fff0-d3f7-44a5-a49c-1306fe747707",
+          "isHook": true,
+          "skipped": false
+        }
+      ],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "List books",
+          "fullTitle": "List books",
+          "timedOut": false,
+          "duration": 0,
+          "state": "passed",
+          "speed": "fast",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "describe(`List books`, () => {\n    getBooks()\n})",
+          "err": {},
+          "uuid": "89ecb3fb-2614-48e1-8ec7-e877fda2748f",
+          "parentUUID": "8c98fff0-d3f7-44a5-a49c-1306fe747707",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [
+        {
+          "uuid": "73e1d3bd-2b09-4849-836b-777d777cb2f7",
+          "title": "List books",
+          "fullFile": "/api-test-automation/tests/scenarios/books/list_books.js",
+          "file": "/tests/scenarios/books/list_books.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Retrieve list of all books",
+              "fullTitle": "List books Retrieve list of all books",
+              "timedOut": false,
+              "duration": 6,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "await request(this, 'GET', '/books', undefined, false, \n    {\n        statusCode : 200,\n        expectedFields: [\n            '0.id',\n            '7.id',\n        ],\n        expectedValues: [\n                            {path: '0.id', value: 1},\n                            // {path: '6.id', value: 7},\n                        ]\n    }\n)",
+              "err": {
+                "message": "AggregateError",
+                "estack": "AggregateError\n    at internalConnectMultiple (node:net:1102:18)\n    at afterConnectMultiple (node:net:1620:5)",
+                "diff": null
+              },
+              "uuid": "3e9188f7-8f72-4123-b040-63167a544931",
+              "parentUUID": "73e1d3bd-2b09-4849-836b-777d777cb2f7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "3e9188f7-8f72-4123-b040-63167a544931"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 6,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 20000
+        }
+      ],
+      "passes": [
+        "89ecb3fb-2614-48e1-8ec7-e877fda2748f"
+      ],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 20000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.3.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.2.0"
+    }
+  }
+}
